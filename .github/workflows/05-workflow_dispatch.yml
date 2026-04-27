@@ -1,0 +1,26 @@
+name: Workflow - Manual Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      alert_level:
+        description: 'Nivel de alerta'
+        required: true
+        default: 'normal'
+        type: choice
+        options:
+          - low
+          - normal
+          - high
+          - critical
+
+jobs:
+  dispatch_job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Mensaje de Workflow Dispatch
+        run: echo "Workflow disparado manualmente con nivel de alerta: ${{ github.event.inputs.alert_level }}"

@@ -1,0 +1,17 @@
+name: Workflow - Scheduled
+
+on:
+  schedule:
+    # Se ejecuta cada hora a las 00 minutos
+    - cron: '0 * * * *'
+
+jobs:
+  schedule_job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Mensaje de Ejecución Programada
+        run: echo "Ejecución programada"

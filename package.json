@@ -1,0 +1,20 @@
+{
+    "name": "api-personas",
+    "version": "1.0.0",
+    "description": "API REST para obtener lista de personas",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node --watch server.js"
+    },
+    "keywords": [
+        "api",
+        "personas",
+        "rest"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}

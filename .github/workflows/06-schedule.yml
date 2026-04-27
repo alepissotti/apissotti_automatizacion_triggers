@@ -2,8 +2,8 @@ name: Workflow - Scheduled
 
 on:
   schedule:
-    # Se ejecuta cada hora a las 00 minutos
-    - cron: '0 * * * *'
+    # Se ejecuta cada 5 minutos
+    - cron: '*/5 * * * *'
 
 jobs:
   schedule_job:

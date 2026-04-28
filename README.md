@@ -30,7 +30,7 @@ El servidor estará disponible en: `http://localhost:3000`
 
 ### 1. Obtener todas las personas
 ```
-GET /personas
+GET /api/personas
 ```
 
 **Respuesta:**
@@ -53,7 +53,7 @@ GET /personas
 
 ### 2. Obtener una persona por ID
 ```
-GET /personas/:id
+GET /api/personas/:id
 ```
 
 **Ejemplo:** `GET /personas/1`
@@ -95,10 +95,10 @@ Puedes usar `curl`, Postman, o cualquier cliente HTTP:
 
 ```bash
 # Obtener todas las personas
-curl http://localhost:3000/personas
+curl http://localhost:3000/api/personas
 
 # Obtener una persona específica
-curl http://localhost:3000/personas/1
+curl http://localhost:3000/api/personas/1
 ```
 
 ## Modificar los datos

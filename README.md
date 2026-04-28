@@ -1,110 +1,46 @@
-# API de Personas
+# GitHub Actions: Implementación de Workflows y Triggers
 
-Una API REST simple construida con Node.js y Express que devuelve una lista de personas.
+**Nombre:** Alejandro Pissotti
 
-## Instalación
+## 📝 Descripción del Proyecto
+Este proyecto demuestra la implementación de diversos flujos de trabajo automatizados mediante **GitHub Actions**. Se han configurado triggers específicos para cubrir el ciclo de vida completo de un repositorio, desde la gestión de tareas (Issues) hasta la integración de código (Push/PR) y ejecuciones manuales.
 
-Las dependencias ya están instaladas, pero si necesitas reinstalarlas ejecuta:
+## ⚙️ Detalle de los Workflows y Triggers
 
-```bash
-npm install
-```
-
-## Uso
-
-### Iniciar el servidor
-
-```bash
-npm start
-```
-
-O para desarrollo con reinicio automático:
-
-```bash
-npm run dev
-```
-
-El servidor estará disponible en: `http://localhost:3000`
-
-## Endpoints
-
-### 1. Obtener todas las personas
-```
-GET /api/personas
-```
-
-**Respuesta:**
-```json
-{
-  "success": true,
-  "data": [
-    {
-      "id": 1,
-      "nombre": "Juan Pérez",
-      "edad": 28,
-      "email": "juan@example.com",
-      "ciudad": "Madrid"
-    },
-    ...
-  ],
-  "total": 5
-}
-```
-
-### 2. Obtener una persona por ID
-```
-GET /api/personas/:id
-```
-
-**Ejemplo:** `GET /personas/1`
-
-**Respuesta:**
-```json
-{
-  "success": true,
-  "data": {
-    "id": 1,
-    "nombre": "Juan Pérez",
-    "edad": 28,
-    "email": "juan@example.com",
-    "ciudad": "Madrid"
-  }
-}
-```
-
-### 3. Información del servidor
-```
-GET /
-```
-
-Devuelve la información disponible de endpoints.
-
-## Estructura del proyecto
-
-```
-├── server.js          # Servidor Express principal
-├── mockData.js        # Datos mockeados de personas
-├── package.json       # Dependencias y scripts
-├── .gitignore         # Archivos a ignorar en git
-└── README.md          # Este archivo
-```
-
-## Probar la API
-
-Puedes usar `curl`, Postman, o cualquier cliente HTTP:
-
-```bash
-# Obtener todas las personas
-curl http://localhost:3000/api/personas
-
-# Obtener una persona específica
-curl http://localhost:3000/api/personas/1
-```
-
-## Modificar los datos
-
-Para agregar, modificar o eliminar personas, edita el archivo `mockData.js`.
+1.  **Push (`on: push`):** Se activa automáticamente al subir cambios a la rama principal. Es la base para procesos de Integración Continua (CI).
+2.  **Pull Request (`on: pull_request`):** Se dispara al abrir o actualizar un PR. Permite validar el código antes de ser incorporado a la rama base.
+3.  **Issues (`on: issues`):** Se ejecuta al crear, editar o cerrar un issue. Útil para automatizar la organización del proyecto.
+4.  **Issue Comment (`on: issue_comment`):** Se activa al recibir comentarios en Issues o Pull Requests, permitiendo interactuar con los usuarios de forma automática.
+5.  **Manual Dispatch (`on: workflow_dispatch`):** Permite la ejecución manual del workflow desde la pestaña "Actions" de GitHub, admitiendo parámetros personalizados (ej. nivel de alerta).
+6.  **Schedule (`on: schedule`):** (Configurado por cron) Ejecuta tareas en intervalos de tiempo definidos para mantenimiento o reportes periódicos.
 
 ---
 
-**Proyecto original:** Automatización con Triggers de GitHub Actions
+## 📸 Evidencias de Ejecución
+
+### 1. Workflow: Push
+Confirmación de activación tras un push/merge en la rama principal.
+![Push Workflow](./1_workflow_push_main.png)
+
+### 2. Workflow: Pull Request
+Detección de evento al crear un PR para nuevos endpoints.
+![Pull Request Workflow](./2_workflow_pull_request_creado.png)
+
+### 3. Workflow: New Issue
+Ejecución disparada por la creación de un nuevo issue de prueba.
+![Issues Workflow](./3_workflow_nuevo_issue.png)
+
+### 4. Workflow: Issue Comment
+Validación del trigger al detectar comentarios en un hilo de PR o Issue.
+![Issue Comment Workflow](./4_workflow_issue_comment.png)
+
+### 5. Workflow: Manual Dispatch
+Ejecución manual exitosa con parámetros de entrada personalizados.
+![Manual Dispatch Workflow](./5_workflow_manual_dispatch.png)
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+- **GitHub Actions**
+- **YAML** para la definición de workflows.
+- **Git/GitHub** para control de versiones.
